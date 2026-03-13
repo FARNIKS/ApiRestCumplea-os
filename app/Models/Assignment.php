@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Assignment extends Model
 {
-    protected $table = 'Core.assignments';
+    protected $table = 'assignments';
 
-    protected $fillable = ['position_id', 'department_id'];
+    // Añade esta línea:
+    public $timestamps = false;
+
+    protected $fillable = ['positions_id', 'departments_id'];
 
     public function position(): BelongsTo
     {

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('birthday_messages', function (Blueprint $table) {
             $table->id();
             $table->text('phrase');
-            $table->timestamps();
         });
     }
 

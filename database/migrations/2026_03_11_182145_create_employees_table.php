@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('assignment_id')->constrained();
             $table->date('birthday');
             $table->boolean('estado');
-            $table->timestamps();
         });
     }
 

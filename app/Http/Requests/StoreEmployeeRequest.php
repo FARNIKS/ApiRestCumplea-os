@@ -20,8 +20,8 @@ class StoreEmployeeRequest extends FormRequest
             'estado'   => 'required|boolean',
 
             // FORZAMOS EL ESQUEMA CON CORCHETES (Sintaxis nativa de SQL Server)
-            'assignements_id' => 'required|exists:sqlsrv.Core.assignments,id',
-            'branch_id'       => 'required|exists:sqlsrv.Core.branches,id',
+            'assignments_id' => 'required|exists:sqlsrv.assignments,id',
+            'branch_id'      => 'required|exists:branches,id',
         ];
     }
 }

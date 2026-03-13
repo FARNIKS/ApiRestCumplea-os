@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateEmployeeRequest extends FormRequest
+class StoreBranchRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,13 +22,11 @@ class UpdateEmployeeRequest extends FormRequest
      */
     public function rules(): array
     {
-        // Usamos 'sometimes' para que solo valide si el campo viene en el JSON (PATCH)
         return [
-            'name'            => 'sometimes|string|min:3|max:255',
-            'birthday'        => 'sometimes|date|before:today',
-            'estado'          => 'sometimes|boolean',
-            'assignments_id'  => 'sometimes|exists:sqlsrv.assignments,id',
-            'branch_id'      => 'sometimes|exists:branches,id'
+            'code'       => 'required|string|max:255',
+            'company_id' => 'required|exists:companies,id',
+            'country'    => 'required|string|max:255',
+            'total_staff' => 'required|integer',
         ];
     }
 }
