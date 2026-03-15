@@ -14,7 +14,11 @@ class UpdateAssignmentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        /**
+         * Usamos el operador null-safe (?->) para evitar errores si el usuario es nulo.
+         * Esto verifica si el usuario existe y si tiene el rol de administrador.
+         */
+        return $this->user()?->isAdmin() ?? false;
     }
 
     /**

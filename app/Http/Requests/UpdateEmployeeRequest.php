@@ -12,7 +12,11 @@ class UpdateEmployeeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        /**
+         * Usamos el operador null-safe (?->) para evitar errores si el usuario es nulo.
+         * Esto verifica si el usuario existe y si tiene el rol de administrador.
+         */
+        return $this->user()?->isAdmin() ?? false;
     }
 
     /**
@@ -28,7 +32,7 @@ class UpdateEmployeeRequest extends FormRequest
             'birthday'        => 'sometimes|date|before:today',
             'estado'          => 'sometimes|boolean',
             'assignments_id'  => 'sometimes|exists:sqlsrv.assignments,id',
-            'branch_id'      => 'sometimes|exists:branches,id'
+            'branch_id'       => 'sometimes|exists:branches,id'
         ];
     }
 }
