@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reporte de Integridad de Datos</title>
     <style>
         body {
@@ -15,7 +14,7 @@
         }
 
         .audit-card {
-            max-width: 850px;
+            width: 850px;
             margin: 0 auto;
             background: #ffffff;
             border-radius: 16px;
@@ -24,7 +23,6 @@
             border: 1px solid #e2e8f0;
         }
 
-        /* --- HEADER --- */
         .audit-header {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             background-color: #0f172a;
@@ -55,12 +53,10 @@
             letter-spacing: 0.3px;
         }
 
-        /* --- BODY --- */
         .audit-body {
             padding: 35px;
         }
 
-        /* --- CONTENEDOR Y TABLA --- */
         .table-container-custom {
             background: #ffffff;
             border-radius: 12px;
@@ -75,10 +71,8 @@
             border-spacing: 0;
         }
 
-        /* Títulos de las columnas con gris leve y centrados */
         .table-custom thead th {
             background-color: #f1f5f9;
-            /* Gris leve presentable */
             color: #1e293b;
             font-weight: 700;
             text-transform: uppercase;
@@ -86,14 +80,11 @@
             letter-spacing: 0.8px;
             border-bottom: 2px solid #cbd5e1;
             border-right: 1px solid #cbd5e1;
-            /* Separación de columnas en header */
             padding: 16px 12px;
             vertical-align: middle;
             text-align: center;
-            /* Centrado estricto */
         }
 
-        /* Esquinas superiores del contenedor */
         .table-custom thead th:first-child {
             border-top-left-radius: 11px;
         }
@@ -101,39 +92,30 @@
         .table-custom thead th:last-child {
             border-top-right-radius: 11px;
             border-right: none;
-            /* Quita borde sobrante a la derecha */
         }
 
-        /* Celdas del cuerpo centradas y con separación clara */
         .table-custom tbody td {
             padding: 18px 12px;
             border-bottom: 1px solid #e2e8f0;
-            /* Separación horizontal de celdas */
             border-right: 1px solid #e2e8f0;
-            /* Separación de columnas en body */
             font-size: 14px;
             color: #334155;
             vertical-align: middle;
             text-align: center;
-            /* Centrado de todo el contenido */
         }
 
         .table-custom tbody td:last-child {
             border-right: none;
-            /* Quita borde sobrante a la derecha */
         }
 
-        /* Filas intercaladas para mejorar lectura */
         .table-custom tbody tr:nth-child(even) {
             background-color: #f8fafc;
         }
 
         .table-custom tbody tr:last-child td {
             border-bottom: none;
-            /* Evita doble borde al final */
         }
 
-        /* Esquinas inferiores del contenedor */
         .table-custom tbody tr:last-child td:first-child {
             border-bottom-left-radius: 11px;
         }
@@ -142,7 +124,6 @@
             border-bottom-right-radius: 11px;
         }
 
-        /* --- ESTILOS DE CELDAS --- */
         .emp-id {
             font-weight: 600;
             color: #64748b;
@@ -159,7 +140,6 @@
             color: #475569;
         }
 
-        /* --- BADGES MODERNOS --- */
         .status-badge {
             font-weight: 600;
             font-size: 12px;
@@ -180,7 +160,6 @@
             border: 1px solid #fca5a5;
         }
 
-        /* --- DETALLES DE FECHA --- */
         .date-main {
             display: block;
             font-weight: 600;
@@ -199,7 +178,6 @@
             font-style: italic;
         }
 
-        /* --- FOOTER --- */
         .audit-footer {
             background-color: #f8fafc;
             padding: 24px 35px;
@@ -212,7 +190,7 @@
     </style>
 </head>
 
-<body style="background-color: transparent;">
+<body>
     <div class="audit-card">
         <div class="audit-header">
             <h1>Calidad de Datos: Gestión de Personal</h1>
