@@ -119,8 +119,9 @@ return [
         'name' => env('MAIL_FROM_NAME', env('APP_NAME', 'Laravel')),
     ],
     /*Remover el bloque de codigo de to cuando ya se quiera enviar a toda la empresa*/
-    'to' => [
+    /*'to' => [
         'address' => [
+            //'jquesada@corporacionob.com'
             'ldijeres@corporacionob.com',
             'mvargasch@corporacionob.com',
             'mcabreram@corporacionob.com',
@@ -128,4 +129,7 @@ return [
         ],
         'name' => 'Pruebas de Desarrollo',
     ],
+    'bcc' => [
+            'mjimenezf@elorbe.la',
+            ]*/
 ];
