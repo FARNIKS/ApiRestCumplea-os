@@ -17,7 +17,8 @@ class NewEmployee extends Model
     protected $fillable = [
         'cedula',
         'nombre',
-        'departamento',
+        'centro_costo',
+        'puesto',
         'empresa_code',
         'cumple',
         'fecha_ingreso',
@@ -35,9 +36,14 @@ class NewEmployee extends Model
         return $this->belongsTo(Branch::class, 'empresa_code', 'code');
     }
 
-    public function employee(): BelongsTo
+    public function employeeByCentroCosto(): BelongsTo
     {
-        return $this->belongsTo(Employee::class, 'departamento', 'Departamento');
+        return $this->belongsTo(Employee::class, 'centro_costo', 'Centro de costo');
+    }
+
+    public function employeeByPuesto(): BelongsTo
+    {
+        return $this->belongsTo(Employee::class, 'puesto', 'Puesto');
     }
 
     protected function nombre(): Attribute

@@ -2,11 +2,12 @@
 
 namespace App\Mail;
 
-use App\Models\BirthdayConfig; // IMPORTANTE
+use App\Models\BirthdayConfig;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Headers;
 use Illuminate\Queue\SerializesModels;
 
 class BirthdayMail extends Mailable
@@ -33,6 +34,20 @@ class BirthdayMail extends Mailable
     {
         return new Content(
             view: 'emails.birthday',
+        );
+    }
+
+    /**
+     * Encabezados explícitos para forzar el trato corporativo/transaccional
+     */
+    public function headers(): Headers
+    {
+        return new Headers(
+            text: [
+                'X-Auto-Response-Suppress' => 'OOF, AutoReply',
+                'X-Report-Abuse-To'        => 'talentohumanocentroa@corporacionob.com',
+                'Auto-Submitted'           => 'auto-generated',
+            ],
         );
     }
 

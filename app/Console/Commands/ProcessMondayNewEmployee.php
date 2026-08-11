@@ -50,7 +50,8 @@ class ProcessMondayNewEmployee extends Command
 
                     $cedula       = $emp->cedula ?? $emp->Cedula ?? null;
                     $nombre       = $emp->nombre ?? $emp->Nombre ?? null;
-                    $departamento = $emp->departamento ?? $emp->Departamento ?? 'Sin Área';
+                    $puesto       = $emp->puesto ?? $emp->Puesto ?? $emp->cargo ?? null;
+                    $centroCosto  = $emp->centro_costo ?? $emp->Centro_Costo ?? $emp->dimensiones ?? null;
                     $empresaCode  = $emp->empresa_code ?? $emp->Empresa ?? null;
 
                     $fechaIngresoRaw = $emp->fecha_ingreso ?? $emp->Fecha_Ingreso ?? null;
@@ -65,7 +66,8 @@ class ProcessMondayNewEmployee extends Command
                             HistoryEmployee::create([
                                 'cedula'        => $registroLocal->cedula,
                                 'nombre'        => $registroLocal->getRawOriginal('nombre') ?? $registroLocal->nombre,
-                                'departamento'  => $registroLocal->departamento,
+                                'puesto'        => $registroLocal->puesto,
+                                'centro_costo'  => $registroLocal->centro_costo,
                                 'empresa_code'  => $registroLocal->empresa_code,
                                 'fecha_ingreso' => $registroLocal->fecha_ingreso,
                                 'fecha_envio'   => now(),
@@ -77,7 +79,8 @@ class ProcessMondayNewEmployee extends Command
                             HistoryEmployee::create([
                                 'cedula'        => $cedula,
                                 'nombre'        => $nombre,
-                                'departamento'  => $departamento,
+                                'puesto'        => $puesto,
+                                'centro_costo'  => $centroCosto,
                                 'empresa_code'  => $empresaCode,
                                 'fecha_ingreso' => $fechaIngreso,
                                 'fecha_envio'   => now(),

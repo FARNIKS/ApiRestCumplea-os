@@ -96,24 +96,27 @@
             letter-spacing: 0.5px;
         }
 
-        .employee-row {
+        .employee-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .employee-item {
             padding: 16px 20px;
             border-bottom: 1px solid #f1f5f9;
             background-color: #ffffff;
         }
 
-        .employee-row:last-child {
+        .employee-item:last-child {
             border-bottom: none;
         }
 
-        .dept-context {
+        .dept-tag {
             display: block;
-            font-size: 10.5px;
-            font-weight: 700;
+            font-size: 12px;
             color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
+            font-weight: 500;
         }
 
         .emp-name {
@@ -121,6 +124,7 @@
             font-size: 15.5px;
             font-weight: 600;
             color: #1e293b;
+            margin-bottom: 2px;
         }
 
         .alert-box {
@@ -132,15 +136,6 @@
             margin-bottom: 24px;
             display: flex;
             align-items: center;
-        }
-
-        .alert-icon {
-            font-size: 18px;
-            margin-right: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            user-select: none;
         }
 
         .alert-text {
@@ -197,13 +192,18 @@
                                 {{ $employees->count() === 1 ? 'INGRESO' : 'INGRESOS' }}</span>
                         </div>
 
-                        @foreach ($employees as $employee)
-                            <div class="employee-row">
-                                <span class="dept-context">Se incorpora al departamento de
-                                    {{ $employee->departamento }}</span>
-                                <span class="emp-name">{{ $employee->nombre }}</span>
-                            </div>
-                        @endforeach
+                        <ul class="employee-list">
+                            @foreach ($employees as $employee)
+                                <li class="employee-item">
+                                    <span class="emp-name">{{ $employee->nombre }}</span>
+                                    <span class="dept-tag">
+                                        Se incorpora al puesto de
+                                        {{ \Illuminate\Support\Str::title($employee->puesto) }} al departamento de
+                                        {{ $employee->centro_costo }}
+                                    </span>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
                 @endforeach
             @endforeach

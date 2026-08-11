@@ -18,7 +18,8 @@ class HistoryEmployeeResource extends JsonResource
             'id'            => $this->id,
             'cedula'        => $this->cedula,
             'nombre'        => $this->nombre,
-            'departamento'  => $this->departamento,
+            'centro_costo'  => $this->centro_costo,
+            'puesto'        => $this->puesto,
             'fecha_ingreso' => $this->fecha_ingreso ? $this->fecha_ingreso->format('Y-m-d') : null,
             'empresa' => [
                 'codigo' => $this->empresa_code,

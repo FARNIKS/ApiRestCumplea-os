@@ -10,7 +10,6 @@ use Carbon\Carbon;
 
 class ClonarAHistorial extends Command
 {
-
     protected $signature = 'db:clonar-historial';
 
     protected $description = 'Sincroniza el espejo histórico completo con el pasado de AX y llena la sala de espera de NewEmployees con la semana actual';
@@ -33,7 +32,8 @@ class ClonarAHistorial extends Command
                 DB::table('history_employees')->insert([
                     'cedula'        => $emp->Cedula,
                     'nombre'        => $emp->getRawOriginal('Nombre') ?? $emp->Nombre,
-                    'departamento'  => $emp->Departamento ?? 'Sin Área',
+                    'centro_costo'  => $emp->{'Centro de costo'} ?? 'Sin Centro de Costo',
+                    'puesto'        => $emp->Puesto ?? null,
                     'empresa_code'  => $emp->Empresa,
                     'fecha_ingreso' => $emp->Fecha_Ingreso ? $emp->Fecha_Ingreso->format('Y-m-d') : null,
                     'created_at'    => now(),
@@ -53,7 +53,8 @@ class ClonarAHistorial extends Command
                 NewEmployee::create([
                     'cedula'        => $nuevo->Cedula,
                     'nombre'        => $nuevo->getRawOriginal('Nombre') ?? $nuevo->Nombre,
-                    'departamento'  => $nuevo->Departamento ?? 'Sin Área',
+                    'centro_costo'  => $nuevo->{'Centro de costo'} ?? 'Sin Centro de Costo',
+                    'puesto'        => $nuevo->Puesto ?? null,
                     'empresa_code'  => $nuevo->Empresa,
                     'fecha_ingreso' => $nuevo->Fecha_Ingreso ? $nuevo->Fecha_Ingreso->format('Y-m-d') : null,
                     'enviado'       => false,

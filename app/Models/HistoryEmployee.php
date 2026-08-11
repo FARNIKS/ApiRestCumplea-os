@@ -12,7 +12,8 @@ class HistoryEmployee extends Model
     protected $fillable = [
         'cedula',
         'nombre',
-        'departamento',
+        'centro_costo',
+        'puesto',
         'empresa_code',
         'fecha_ingreso',
         'fecha_envio',

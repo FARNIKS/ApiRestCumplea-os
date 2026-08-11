@@ -105,24 +105,6 @@
             line-height: 1.6;
         }
 
-        .phrase-box {
-            background-color: #fffbeb;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 35px 0 0 0;
-            border: 1px solid #fef3c7;
-            text-align: center;
-        }
-
-        .phrase-text {
-            margin: 0;
-            color: #b45309;
-            font-size: 15px;
-            font-style: italic;
-            line-height: 1.5;
-            font-weight: 500;
-        }
-
         .footer {
             font-size: 12px;
             color: #64748b;
@@ -140,12 +122,20 @@
 </head>
 
 <body style="background-color: transparent;">
+
+    <!-- Preheader oculto para clasificación de bandeja principal -->
+    <div
+        style="display: none; max-height: 0px; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; color: #fff;">
+        Comunicado interno sobre la incorporación de nuevos colaboradores a Corporación OBGROUP.
+    </div>
+
     <div class="container">
-        <img src="{{ $config->banner_url }}" alt="Bienvenida OBGROUP" class="banner">
+        <img src="{{ $config->banner_url }}" alt="Bienvenida OBGROUP" width="600"
+            style="width: 100%; max-width: 600px; height: auto; display: block; border: 0;" class="banner">
+
         <div class="content">
             <div class="intro-text">
                 <p><strong>{!! nl2br(e($config->intro_text)) !!}</strong></p>
-
                 <p>{!! nl2br(e($config->main_body)) !!}</p>
             </div>
 
@@ -159,8 +149,11 @@
                                 @foreach ($employees as $employee)
                                     <li class="employee-item">
                                         <span class="emp-name">{{ $employee->nombre }}</span>
-                                        <span class="dept-tag">Se incorpora al departamento de
-                                            {{ $employee->departamento }}</span>
+                                        <span class="dept-tag">
+                                            Se incorpora al puesto de
+                                            {{ \Illuminate\Support\Str::title($employee->puesto) }} al departamento de
+                                            {{ $employee->centro_costo }}
+                                        </span>
                                     </li>
                                 @endforeach
                             </ul>
@@ -172,7 +165,6 @@
             <div class="closing-text">
                 <p>{!! nl2br(e($config->closing_text)) !!}</p>
             </div>
-
         </div>
 
         <div class="footer">

@@ -12,7 +12,8 @@ return new class extends Migration
             $table->id();
             $table->string('cedula', 50)->unique();
             $table->string('nombre');
-            $table->string('departamento');
+            $table->string('centro_costo')->nullable();
+            $table->string('puesto')->nullable();
             $table->string('empresa_code', 10);
             $table->date('cumple')->nullable();
             $table->date('fecha_ingreso')->nullable();

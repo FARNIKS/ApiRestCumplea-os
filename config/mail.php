@@ -121,11 +121,9 @@ return [
     /*Remover el bloque de codigo de to cuando ya se quiera enviar a toda la empresa*/
     'to' => [
         'address' => [
-            'ldijeres@corporacionob.com',
-            'mvargasch@corporacionob.com',
-            'mcabreram@corporacionob.com',
-            'aalfaro@corporacionob.com',
+            'mjimenezf@elorbe.la',
         ],
         'name' => 'Pruebas de Desarrollo',
     ],
+
 ];

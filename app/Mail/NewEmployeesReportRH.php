@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Headers;
 use Illuminate\Queue\SerializesModels;
 use App\Models\NewEmployeeReportRhConfig;
 
@@ -33,6 +34,16 @@ class NewEmployeesReportRH extends Mailable
     {
         return new Content(
             view: 'emails.reportNewEmployesRH',
+        );
+    }
+
+    public function headers(): Headers
+    {
+        return new Headers(
+            text: [
+                'X-Auto-Response-Suppress' => 'OOF, AutoReply',
+                'Auto-Submitted'           => 'auto-generated',
+            ],
         );
     }
 }

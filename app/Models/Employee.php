@@ -5,12 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Employee extends Model
 {
-
     protected $connection = 'sqlsrvax';
 
     protected $table = 'AX_Usuarios_Cumple';
@@ -20,8 +18,9 @@ class Employee extends Model
     protected $casts = [
         'Cumple' => 'datetime',
     ];
+
     protected $fillable = [
-        'departamento',
+        'puesto',
     ];
 
     public function branch(): BelongsTo
@@ -29,9 +28,14 @@ class Employee extends Model
         return $this->belongsTo(Branch::class, 'Empresa', 'code');
     }
 
-    public function newEmployees(): HasMany
+    public function newEmployeesByPuesto(): HasMany
     {
-        return $this->hasMany(NewEmployee::class, 'departamento', 'Departamento');
+        return $this->hasMany(NewEmployee::class, 'puesto', 'Puesto');
+    }
+
+    public function newEmployeesByCentroCosto(): HasMany
+    {
+        return $this->hasMany(NewEmployee::class, 'centro_costo', 'Centro de costo');
     }
 
     protected function nombre(): Attribute
