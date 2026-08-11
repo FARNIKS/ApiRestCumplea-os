@@ -37,7 +37,8 @@ class SyncNewEmployees extends Command
                 NewEmployee::create([
                     'cedula'        => $candidato->Cedula,
                     'nombre'        => $candidato->Nombre,
-                    'departamento'  => $candidato->Departamento ?? 'Sin Área',
+                    'centro_costo'  => $candidato->{'Centro de costo'} ?? 'Sin Centro de Costo',
+                    'puesto'        => $candidato->Puesto ?? null,
                     'empresa_code'  => $candidato->Empresa,
                     'cumple'        => $candidato->Cumple ? $candidato->Cumple->format('Y-m-d') : null,
                     'fecha_ingreso' => $candidato->Fecha_Ingreso ? $candidato->Fecha_Ingreso->format('Y-m-d') : null,

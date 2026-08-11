@@ -18,7 +18,8 @@ class NewEmployeeResource extends JsonResource
             'id'            => $this->id,
             'cedula'        => $this->cedula, // 👈 Expuesto al frontend
             'nombre'        => $this->nombre,
-            'departamento'  => $this->departamento,
+            'centro_costo'  => $this->centro_costo,
+            'puesto'        => $this->puesto,
             'enviado'       => (bool) $this->enviado,
             'fecha_ingreso' => $this->fecha_ingreso?->format('Y-m-d'), // 👈 Expuesto al frontend
             'empresa' => [

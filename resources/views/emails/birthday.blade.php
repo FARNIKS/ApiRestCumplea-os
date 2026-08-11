@@ -124,9 +124,17 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: transparent;">
+
+    <!-- Preheader oculto para optimizar la entrega en la bandeja principal -->
+    <div
+        style="display: none; max-height: 0px; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; color: #fff;">
+        Comunicado interno sobre los colaboradores que celebran su cumpleaños en Corporación OBGROUP.
+    </div>
+
     <div class="container">
-        <img src="{{ $config->banner_url }}" alt="Banner Cumpleaños" class="banner">
+        <img src="{{ $config->banner_url }}" alt="Banner Cumpleaños OBGROUP" width="600"
+            style="width: 100%; max-width: 600px; height: auto; display: block; border: 0;" class="banner">
 
         <div class="content">
             <p class="intro-text">

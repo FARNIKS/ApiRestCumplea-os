@@ -8,9 +8,9 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Headers;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Collection;
-
 
 class DataQualityMail extends Mailable
 {
@@ -34,6 +34,16 @@ class DataQualityMail extends Mailable
     {
         return new Content(
             view: 'emails.audit',
+        );
+    }
+
+    public function headers(): Headers
+    {
+        return new Headers(
+            text: [
+                'X-Auto-Response-Suppress' => 'OOF, AutoReply',
+                'Auto-Submitted'           => 'auto-generated',
+            ],
         );
     }
 

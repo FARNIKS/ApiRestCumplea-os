@@ -8,12 +8,12 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Headers;
 use Illuminate\Queue\SerializesModels;
 
 class ProcessErrorMail extends Mailable
 {
     use Queueable, SerializesModels;
-
 
     public $errorDetails;
 
@@ -33,6 +33,16 @@ class ProcessErrorMail extends Mailable
     {
         return new Content(
             view: 'emails.processError',
+        );
+    }
+
+    public function headers(): Headers
+    {
+        return new Headers(
+            text: [
+                'X-Auto-Response-Suppress' => 'OOF, AutoReply',
+                'Auto-Submitted'           => 'auto-generated',
+            ],
         );
     }
 
