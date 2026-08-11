@@ -29,17 +29,17 @@ class ProcessMondayNewEmployee extends Command
 
         $bccList = [
             'obarquero@corporacionob.com',
-            'orbecostarica@corporacionob.com',
-            'orbepanama@corporacionob.com',
-            'orbenicaragua@corporacionob.com',
-            'orbehonduras@corporacionob.com',
-            'orbesalvador@corporacionob.com',
-            'orbeguatemala@corporacionob.com',
-            'orbecolombia@corporacionob.com',
-            'siscon@corporacionob.com',
-            'TodoelPersonal@corporacionob.com',
-            'TodoElPersonalCR@corporacionob.com',
-            'todoelpersonalcentroamerica@corporacionob.com'
+            'orbecostarica@orbe.co.cr',
+            'orbepanama@orbe.com.pa',
+            'orbenicaragua@orbe.com.ni',
+            'orbehonduras@orbe.com',
+            'orbesalvador@orbe.com.sv',
+            'orbeguatemala@orbe.com.gt',
+            'orbecolombia@corpob.onmicrosoft.com',
+            'siscon@siscon.co.cr',
+            'TodoelPersonal@corpob.onmicrosoft.com',
+            'TodoElPersonalCR@corpob.onmicrosoft.com',
+            'todoelpersonalcentroamerica@corpob.onmicrosoft.com'
         ];
 
         try {

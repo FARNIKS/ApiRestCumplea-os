@@ -61,8 +61,9 @@ Route::prefix('v1')->group(function () {
         Route::middleware('admin')->group(function () {
 
             Route::post('register', [AuthController::class, 'register']);
-            Route::patch('users/{user}', [AuthController::class, 'update']);
-            Route::patch('users/status/{user}', [AuthController::class, 'toggleStatus']);
+            Route::put('users-status/{user}', [AuthController::class, 'toggleStatus']);
+            Route::put('users/{user}', [AuthController::class, 'update']);
+
 
             Route::post('/new-employees/sync', [NewEmployeeController::class, 'syncNow']);
 
